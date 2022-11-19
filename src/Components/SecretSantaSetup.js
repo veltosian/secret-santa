@@ -19,10 +19,18 @@ const SecretSantaSetup = () => {
     });
   };
 
+  const editPlayer = (player) => {
+    // zy TODO
+  };
+
   return (
     <React.Fragment>
       <PlayerInputForm onAddPlayer={addPlayer} />
-      <PlayerDisplayArea players={players} onPlayerDelete={deletePlayer} />
+      <PlayerDisplayArea
+        players={players}
+        onPlayerDelete={deletePlayer}
+        onPlayerEdit={editPlayer}
+      />
       <FindSantas players={players} />
     </React.Fragment>
   );

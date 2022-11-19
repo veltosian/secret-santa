@@ -20,6 +20,7 @@ const PlayerInputForm = (props) => {
       <form onSubmit={handleFormSubmission}>
         <label htmlFor="name">Name</label>
         <input type="text" id="name" value={name} onChange={handleNameChange} />
+        <button type="submit">Add</button>
       </form>
     </React.Fragment>
   );

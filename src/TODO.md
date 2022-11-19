@@ -1,3 +1,7 @@
-- Format names (cqapitialization, etc)
-- Submit button for entering new player
-- (I already knew this but...) fix the shuffling algorithm
+- [x] Format names (cqapitialization, etc)
+- [x] Submit button for entering new player
+- [ ] (I already knew this but...) fix the shuffling algorithm
+- [ ] Edit button for each user added
+- [ ] Implement rules
+- [ ] Host the site on AWS
+- [ ] Figure out how to put ads on the page?
