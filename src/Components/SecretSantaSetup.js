@@ -20,7 +20,14 @@ const SecretSantaSetup = () => {
   };
 
   const editPlayer = (player) => {
-    // zy TODO
+    setPlayers((prevState) => {
+      const updateIndex = prevState.findIndex(
+        (element) => element.id === player.id
+      );
+      const newState = [...prevState];
+      newState[updateIndex] = { ...player };
+      return newState;
+    });
   };
 
   return (
