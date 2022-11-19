@@ -1,0 +1,3 @@
+- Format names (cqapitialization, etc)
+- Submit button for entering new player
+- (I already knew this but...) fix the shuffling algorithm

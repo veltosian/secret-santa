@@ -1,25 +1,32 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useState } from 'react';
+import StartButton from './Components/StartButton';
+import SecretSantaSetup from './Components/SecretSantaSetup';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const [started, setStarted] = useState(false);
+
+  const handleStartupClick = (e) => {
+    setStarted((prevState) => {
+      return !prevState;
+    });
+  };
+
+  if (!started) {
+    return (
+      <React.Fragment>
+        <h1>Salutations from the Secret Santa Setup System!</h1>
+        <h2>
+          If you want to organize a secret santa game over the holidays this is
+          the way to do it!
+        </h2>
+        <StartButton onClick={handleStartupClick} />
+      </React.Fragment>
+    );
+  } else {
+    // zy TODO
+    return <SecretSantaSetup />;
+  }
 }
 
 export default App;
