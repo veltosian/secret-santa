@@ -10,7 +10,7 @@ const PlayerInputForm = (props) => {
 
   const handleFormSubmission = (event) => {
     event.preventDefault();
-    props.onAddPlayer({ name: name, id: uuidv4() });
+    props.onAddPlayer({ name: formatName(name), id: uuidv4(), rules: [] });
     setName('');
   };
 
@@ -27,3 +27,14 @@ const PlayerInputForm = (props) => {
 };
 
 export default PlayerInputForm;
+
+const formatName = (name) => {
+  const nameArr = name.split(' ');
+  return nameArr.map(capitalizeFirstLetter).join(' ');
+};
+
+const capitalizeFirstLetter = (word) => {
+  const charArr = word.split('');
+  charArr[0] = charArr[0].toUpperCase();
+  return charArr.join('');
+};

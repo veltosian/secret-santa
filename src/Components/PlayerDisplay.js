@@ -20,7 +20,7 @@ const PlayerDisplay = (props) => {
 
   return (
     <Card>
-      <p>{formatName(props.player.name)}</p>
+      <p>{props.player.name}</p>
       {editOpen && (
         <PlayerEdit
           onPlayerEdit={props.onPlayerEdit}
@@ -32,17 +32,6 @@ const PlayerDisplay = (props) => {
       <Icon variant="delete" onClick={handlePlayerDelete} />
     </Card>
   );
-};
-
-const formatName = (name) => {
-  const nameArr = name.split(' ');
-  return nameArr.map(capitalizeFirstLetter).join(' ');
-};
-
-const capitalizeFirstLetter = (word) => {
-  const charArr = word.split('');
-  charArr[0] = charArr[0].toUpperCase();
-  return charArr.join('');
 };
 
 export default PlayerDisplay;

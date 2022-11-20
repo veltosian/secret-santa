@@ -1,0 +1,11 @@
+.selected-player {
+  background-color: lime;
+}
+
+.li {
+  cursor: pointer;
+}
+
+.li:hover {
+  background-color: beige;
+}
