@@ -67,8 +67,7 @@ const SecretSantaSetup = () => {
         onPlayerEdit={editPlayer}
         onRuleNameClick={handleRuleNameClick}
       />
-      <FindSantas players={players} />
-      <RulesManager players={players} universalRules={[nonDuplicateRule]} />
+      <FindSantas players={players} rules={[nonDuplicateRule]} />
     </React.Fragment>
   );
 };
