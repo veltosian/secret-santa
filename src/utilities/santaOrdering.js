@@ -1,16 +1,3 @@
-// const determineSantas = (players, rules) => {
-//   const shuffledPlayers = shuffle([...players]);
-//   const pairings = [];
-//   for (let i = 0; i < players.length; i++) {
-//     pairings.push({
-//       santa: players[i],
-//       recipient: shuffledPlayers[i],
-//     });
-//   }
-
-//   return pairings;
-// };
-
 const determineSantas = (players, rules) => {
   const pairings = [];
   const remainingRecipients = [...players];
