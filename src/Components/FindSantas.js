@@ -4,15 +4,24 @@ import SantaResults from './SantaResults';
 
 const FindSantas = (props) => {
   const [santas, setSantas] = useState([]);
+  const [errorGettingSantas, setErrorGettingSantas] = useState(false);
 
   const getSantas = () => {
-    setSantas(determineSantas(props.players));
+    try {
+      setSantas(determineSantas(props.players, props.rules));
+      setErrorGettingSantas(false);
+    } catch (e) {
+      setErrorGettingSantas(true);
+    }
   };
 
   return (
     <React.Fragment>
       <button onClick={getSantas}>Find Santas</button>
-      <SantaResults results={santas} />
+      {!errorGettingSantas && <SantaResults results={santas} />}
+      {errorGettingSantas && (
+        <p>We couldn't find a set of santas that satisfies all the rules.</p>
+      )}
     </React.Fragment>
   );
 };
