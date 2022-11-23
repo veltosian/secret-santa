@@ -1,7 +1,7 @@
 - [x] Format names (cqapitialization, etc)
 - [x] Submit button for entering new player
 - [ ] (I already knew this but...) fix the shuffling algorithm
-- [ ] Edit button for each user added
-- [ ] Implement rules
+- [x] Edit button for each user added
+- [ ] Refactor player stuff into context so that it can be passed around less clunkily
 - [ ] Host the site on AWS
 - [ ] Figure out how to put ads on the page?

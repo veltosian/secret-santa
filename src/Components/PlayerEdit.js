@@ -2,6 +2,11 @@ import React, { useState } from 'react';
 import Icon from './UI/Icon';
 
 const PlayerEdit = (props) => {
+  /*
+
+  ////// I'M MOVING THE PLAYER RULES INTO THIS COMPONENT!!!!
+
+  */
   const [editedName, setEditedName] = useState(props.player.name);
 
   const handlePlayerEdit = (event) => {

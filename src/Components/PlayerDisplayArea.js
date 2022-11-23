@@ -10,8 +10,10 @@ const PlayerDisplayArea = (props) => {
         <PlayerDisplay
           key={player.id}
           player={player}
+          players={players}
           onPlayerDelete={props.onPlayerDelete}
           onPlayerEdit={props.onPlayerEdit}
+          onRuleNameClick={props.onRuleNameClick}
         />
       ))}
     </React.Fragment>

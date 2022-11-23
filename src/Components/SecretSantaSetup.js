@@ -3,11 +3,13 @@ import { v4 as uuidv4 } from 'uuid';
 import PlayerDisplayArea from './PlayerDisplayArea';
 import PlayerInputForm from './PlayerInputForm';
 import FindSantas from './FindSantas';
-import RulesInput from './Rules/RulesInput';
+import RulesManager from './Rules/RulesManager';
 
 const SecretSantaSetup = () => {
   const [players, setPlayers] = useState([
-    { name: 'zach', id: uuidv4(), rules: [] },
+    { name: 'Zach', id: uuidv4(), invalidRecipients: [] },
+    { name: 'Priscilla', id: uuidv4(), invalidRecipients: [] },
+    { name: 'Aurelia', id: uuidv4(), invalidRecipients: [] },
   ]); // zy Debug Remove TEST DATA
 
   const addPlayer = (player) => {
@@ -33,6 +35,29 @@ const SecretSantaSetup = () => {
     });
   };
 
+  const handleRuleNameClick = (checked, playerId, invalidId) => {
+    setPlayers((prevPlayers) => {
+      const newPlayers = [...prevPlayers];
+      const playerToUpdate = newPlayers.find(
+        (player) => player.id === playerId
+      );
+
+      if (!checked && !playerToUpdate.invalidRecipients.includes(invalidId)) {
+        playerToUpdate.invalidRecipients = [
+          invalidId,
+          ...playerToUpdate.invalidRecipients,
+        ];
+      }
+      if (checked && playerToUpdate.invalidRecipients.includes(invalidId)) {
+        playerToUpdate.invalidRecipients =
+          playerToUpdate.invalidRecipients.filter(
+            (prevId) => prevId !== invalidId
+          );
+      }
+      return newPlayers;
+    });
+  };
+
   return (
     <React.Fragment>
       <PlayerInputForm onAddPlayer={addPlayer} />
@@ -40,9 +65,10 @@ const SecretSantaSetup = () => {
         players={players}
         onPlayerDelete={deletePlayer}
         onPlayerEdit={editPlayer}
+        onRuleNameClick={handleRuleNameClick}
       />
       <FindSantas players={players} />
-      <RulesInput players={players} universalRules={[nonDuplicateRule]} />
+      <RulesManager players={players} universalRules={[nonDuplicateRule]} />
     </React.Fragment>
   );
 };

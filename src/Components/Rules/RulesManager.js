@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import RulesPlayerDisplay from './RulesPlayerDisplay';
 import styles from './RulesInput.module.css';
 
-const RulesInput = (props) => {
+const RulesManager = (props) => {
   const [selectedPlayerId, setSelectedPlayerId] = useState(undefined);
 
   const handlePlayerSelect = (id) => {
@@ -31,4 +31,4 @@ const RulesInput = (props) => {
   );
 };
 
-export default RulesInput;
+export default RulesManager;

@@ -1,0 +1,8 @@
+.checked {
+    background-color: lime;
+}
+
+.unchecked {
+    background-color: gray;
+    text-decoration:line-through;
+}
