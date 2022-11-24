@@ -1,7 +1,9 @@
 - [x] Format names (cqapitialization, etc)
 - [x] Submit button for entering new player
-- [ ] (I already knew this but...) fix the shuffling algorithm
+- [x] (I already knew this but...) fix the shuffling algorithm
 - [x] Edit button for each user added
 - [ ] Refactor player stuff into context so that it can be passed around less clunkily
+- [ ] Put a badge on the rules gavel if there are any invalid recipients selected
+- [ ] Implement a "reset rules" button or something to remove invalidrecipients. Could have one button and then could select which players we want to assign it to. The ability to select multiple player sin the list and perform one action on all of those selected would be extensible to other functionality (like deleting multiple at a time)
 - [ ] Host the site on AWS
 - [ ] Figure out how to put ads on the page?
