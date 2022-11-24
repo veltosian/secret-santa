@@ -1,31 +1,65 @@
-const determineSantas = (players, rules) => {
-  const pairings = [];
-  const remainingRecipients = [...players];
+const getPotentialRecipients = (players, rules) => {
+  const potentialRecipients = [];
   for (let player of players) {
-    const possiblePlayers = remainingRecipients.filter(
+    const recipients = players.filter(
       (recipient) =>
         runRules(player, recipient, rules) &&
         !player.invalidRecipients.includes(recipient.id)
     );
 
-    if (possiblePlayers.length === 0) {
-      throw new Error(
-        'Cannot find a set of santas that satisfies all the rules'
-      ); // zy This error message isn't totally accurate. We throw on the first hiccup but there is a chance that a smarter algorithm could have found a path. Update this algorithm to be smarter someday
-    }
+    potentialRecipients.push({
+      playerId: player.id,
+      recipients: recipients,
+    });
+  }
+  return potentialRecipients;
+};
 
-    const chosenIndex = Math.floor(Math.random() * possiblePlayers.length);
-    const chosenPlayer = possiblePlayers[chosenIndex];
-    pairings.push({
-      santa: player,
-      recipient: chosenPlayer,
+const determineSantas = (players, rules) => {
+  const pairings = [];
+  const pairingPossibilities = getPotentialRecipients(players, rules);
+
+  while (pairingPossibilities.length !== 0) {
+    const playerWithShortestList = pairingPossibilities.reduce((acc, ele) => {
+      return ele.recipients.length < acc.recipients.length ? ele : acc;
     });
 
-    const recipientToRemoveIndex = remainingRecipients.findIndex(
-      (recipient) => recipient.id === chosenPlayer.id
+    if (playerWithShortestList.recipients.length === 0) {
+      throw new Error(
+        'Could not find a set of santas and recipients that satisfy all the rules'
+      );
+    }
+
+    const shortestListIndex = pairingPossibilities.findIndex(
+      (pair) => pair.playerId === playerWithShortestList.playerId
     );
-    remainingRecipients.splice(recipientToRemoveIndex, 1);
+
+    pairingPossibilities.splice(shortestListIndex, 1);
+
+    const recipientIndex = Math.floor(
+      Math.random() * playerWithShortestList.recipients.length
+    );
+    const chosenRecipient = playerWithShortestList.recipients[recipientIndex];
+    const santa = players.find(
+      (player) => player.id === playerWithShortestList.playerId
+    );
+
+    pairings.push({
+      santa: santa,
+      recipient: chosenRecipient,
+    });
+
+    // Remove recipient from other possible pairings
+    pairingPossibilities.forEach((pairingPossibility) => {
+      const usedRecipientIndex = pairingPossibility.recipients.findIndex(
+        (recipient) => recipient.id === chosenRecipient.id
+      );
+      if (usedRecipientIndex > -1) {
+        pairingPossibility.recipients.splice(usedRecipientIndex, 1);
+      }
+    });
   }
+
   return pairings;
 };
 
