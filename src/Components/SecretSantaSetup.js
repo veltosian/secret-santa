@@ -3,7 +3,6 @@ import { v4 as uuidv4 } from 'uuid';
 import PlayerDisplayArea from './PlayerDisplayArea';
 import PlayerInputForm from './PlayerInputForm';
 import FindSantas from './FindSantas';
-import RulesManager from './Rules/RulesManager';
 
 const SecretSantaSetup = () => {
   const [players, setPlayers] = useState([

@@ -10,7 +10,11 @@ const PlayerInputForm = (props) => {
 
   const handleFormSubmission = (event) => {
     event.preventDefault();
-    props.onAddPlayer({ name: formatName(name), id: uuidv4(), rules: [] });
+    props.onAddPlayer({
+      name: formatName(name),
+      id: uuidv4(),
+      invalidRecipients: [],
+    });
     setName('');
   };
 
