@@ -1,0 +1,19 @@
+.player-display {
+    margin: .4rem 1rem;
+    border-radius: 10px;
+    background-color: rgba(66, 230, 245, .8);
+    min-width: 33%;
+}
+
+.player-control {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.player-name {
+    font-size: larger;
+    margin: 15px .5em;
+    text-align: center;
+}

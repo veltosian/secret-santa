@@ -1,4 +1,9 @@
 .card {
-  border-radius: 5px;
-  border: 1px solid lightgray;
+  color: darkgreen;
+  border-radius: 10px;
+  border: none;
+  position: relative;
+  padding: 1%;
+  background-color: rgba(200,200,200, .8);
+  margin: 1rem;
 }

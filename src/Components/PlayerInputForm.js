@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import styles from './PlayerInputForm.module.css';
+import Card from './UI/Card';
 
 const PlayerInputForm = (props) => {
   const [name, setName] = useState('');
@@ -19,14 +21,14 @@ const PlayerInputForm = (props) => {
   };
 
   return (
-    <React.Fragment>
+    <Card className={styles['player-input-form']}>
       <h1>Enter a new Player</h1>
       <form onSubmit={handleFormSubmission}>
         <label htmlFor="name">Name</label>
         <input type="text" id="name" value={name} onChange={handleNameChange} />
         <button type="submit">Add</button>
       </form>
-    </React.Fragment>
+    </Card>
   );
 };
 

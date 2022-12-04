@@ -5,9 +5,37 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: rgba(255, 0, 0, .2);
+  background-image: url("../public/images/candy-cane-background.jpg");
+  background-size: 1920px;
+  color: darkgreen;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+button {
+    background-color: #ffffff;
+    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ff0000' fill-opacity='0.3' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
+
+    border: 2px solid rgba(255, 0, 0, .5);
+    border-radius: 10px;
+    box-shadow: 0 0 4px rgba(255, 0, 0, .5);
+
+    font-size: 1.5em;
+    text-align: center;
+    font-weight: bolder;
+}
+
+button:active {
+    transform: scale(0.98);
+    /* Scaling button to 0.98 to its original size */
+    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+    /* Lowering the shadow */
+}
+
+button:hover {
+  cursor: pointer;
 }

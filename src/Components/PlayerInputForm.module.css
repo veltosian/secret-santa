@@ -1,0 +1,8 @@
+.player-input-form {
+    font-size: 1em;
+    margin: 1rem auto;
+    margin-top: 150px;
+    width: 50%;
+    text-align: center;
+    /* transform: translateX(50%); */
+}

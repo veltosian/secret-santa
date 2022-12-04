@@ -1,0 +1,6 @@
+.player-display-area {
+    display: flex;
+    flex-direction: column;
+    width:70%;
+    margin: 1rem auto;
+}
