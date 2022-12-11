@@ -1,15 +1,10 @@
 import React, { useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
 import PlayerDisplayArea from './PlayerDisplayArea';
 import PlayerInputForm from './PlayerInputForm';
 import FindSantas from './FindSantas';
 
 const SecretSantaSetup = () => {
-  const [players, setPlayers] = useState([
-    { name: 'Zach', id: uuidv4(), invalidRecipients: [] },
-    { name: 'Priscilla', id: uuidv4(), invalidRecipients: [] },
-    { name: 'Aurelia', id: uuidv4(), invalidRecipients: [] },
-  ]); // zy Debug Remove TEST DATA
+  const [players, setPlayers] = useState([]);
 
   const addPlayer = (player) => {
     setPlayers((prevState) => {

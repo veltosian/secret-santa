@@ -15,7 +15,7 @@ const getPotentialRecipients = (players, rules) => {
   return potentialRecipients;
 };
 
-const determineSantas = (players, rules) => {
+export const determineSantas = (players, rules) => {
   const pairings = [];
   const pairingPossibilities = getPotentialRecipients(players, rules);
 
@@ -87,4 +87,3 @@ const shuffle = (arr) => {
 };
 
 exports.shuffle = shuffle;
-exports.determineSantas = determineSantas;
